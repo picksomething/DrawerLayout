@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.tencent.bugly.crashreport.CrashReport;
+
 
 public class MainActivity extends Activity {
     private String[] mPlanetTitles;
@@ -32,6 +35,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Context appContext = getApplicationContext();
+        String appId = "900001565";
+        boolean isDebug = true ;
+        CrashReport.initCrashReport(appContext,appId,isDebug);
+        CrashReport.setUserId("hello123");
         setContentView(R.layout.activity_main);
         findViews();
         setListener();
