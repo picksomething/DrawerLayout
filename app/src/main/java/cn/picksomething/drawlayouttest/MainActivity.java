@@ -35,11 +35,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context appContext = getApplicationContext();
+        /**Context appContext = getApplicationContext();
         String appId = "900001565";
         boolean isDebug = true ;
         CrashReport.initCrashReport(appContext,appId,isDebug);
-        CrashReport.setUserId("hello123");
+        CrashReport.setUserId("hello123"); **/
         setContentView(R.layout.activity_main);
         findViews();
         setListener();
