@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView mDrawerList;
     private DrawerLayout mDrawerLayout;
 
-    private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -60,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initDatas() {
-        mTitle = mDrawerTitle = getTitle();
         mToolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.drawerBackgroundColor));
         setSupportActionBar(mToolbar);
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -108,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerList.setItemChecked(position, true);
         mDrawerLayout.closeDrawer(mDrawerList);
-    }
-
-    @Override
-    public void setTitle(CharSequence title) {
-        mTitle = title;
     }
 
     @Override
