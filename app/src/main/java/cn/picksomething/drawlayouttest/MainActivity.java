@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -20,8 +19,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.tencent.bugly.crashreport.CrashReport;
-
 
 public class MainActivity extends Activity {
     private String[] mPlanetTitles;
@@ -35,16 +32,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /**Context appContext = getApplicationContext();
-        String appId = "900001565";
-        boolean isDebug = true ;
-        CrashReport.initCrashReport(appContext,appId,isDebug);
-        CrashReport.setUserId("hello123"); **/
         setContentView(R.layout.activity_main);
         findViews();
         setListener();
         initDatas();
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             selectItem(0);
         }
     }
@@ -54,7 +46,7 @@ public class MainActivity extends Activity {
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-        mDrawerToggle = new CustomActionBarDrawerToggle(this,mDrawerLayout,R.string.drawer_open,R.string.drawer_close);
+        mDrawerToggle = new CustomActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
@@ -69,7 +61,7 @@ public class MainActivity extends Activity {
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
     }
 
-    private class CustomActionBarDrawerToggle extends ActionBarDrawerToggle{
+    private class CustomActionBarDrawerToggle extends ActionBarDrawerToggle {
 
         public CustomActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
             super(activity, drawerLayout, openDrawerContentDescRes, closeDrawerContentDescRes);
@@ -100,13 +92,13 @@ public class MainActivity extends Activity {
     private void selectItem(int position) {
         Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER,position);
+        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame,fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        mDrawerList.setItemChecked(position,true);
+        mDrawerList.setItemChecked(position, true);
         setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
@@ -132,7 +124,7 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main,menu);
+        inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -151,7 +143,7 @@ public class MainActivity extends Activity {
             return true;
         }
         // Handle action buttons
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.action_websearch:
                 // create intent to perform web search for this planet
                 Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
