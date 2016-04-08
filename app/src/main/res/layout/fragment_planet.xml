@@ -1,7 +1,8 @@
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-           android:id="@+id/image"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:background="#000000"
-           android:gravity="center"
-           android:padding="32dp" />
+    android:id="@+id/image"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffafafa"
+    android:gravity="center"
+    android:contentDescription="@null"
+    android:padding="32dp" />

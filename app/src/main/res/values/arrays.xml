@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>水星</item>
+        <item>金星</item>
+        <item>地球</item>
+        <item>火星</item>
+        <item>木星</item>
+        <item>土星</item>
+        <item>天王星</item>
+        <item>海王星</item>
     </string-array>
 </resources>
