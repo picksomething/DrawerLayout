@@ -8,5 +8,6 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_search">Web search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="header_hint_str">This is header</string>
 
 </resources>
