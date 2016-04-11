@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -74,21 +75,34 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
 
+        Log.d("caobin", "menuItem.getItemId = " + menuItem.getItemId());
         switch (menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 1);
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 0);
                 fragment.setArguments(args);
                 break;
             case R.id.nav_second_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 2);
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 1);
                 fragment.setArguments(args);
                 break;
             case R.id.nav_third_fragment:
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 2);
+                fragment.setArguments(args);
+                break;
+            case R.id.nav_sub_first_fragment:
                 args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 3);
                 fragment.setArguments(args);
                 break;
+            case R.id.nav_sub_second_fragment:
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 4);
+                fragment.setArguments(args);
+                break;
+            case R.id.nav_sub_third_fragment:
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 5);
+                fragment.setArguments(args);
+                break;
             default:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 0);
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, -1);
                 fragment.setArguments(args);
         }
 

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/planet_group_1"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
             android:icon="@drawable/ic_one"
@@ -16,16 +18,30 @@
             android:title="Third" />
 
         <item
-            android:id="@+id/nav_sub_header"
-            android:title="Sub items">
-            <menu>
-                <item
-                    android:icon="@drawable/ic_one"
-                    android:title="Sub item 1" />
-                <item
-                    android:icon="@drawable/ic_two"
-                    android:title="Sub item 2" />
-            </menu>
-        </item>
+            android:id="@+id/nav_fourth_fragment"
+            android:icon="@drawable/ic_four"
+            android:title="fourth" />
+
+    </group>
+
+    <group
+        android:id="@+id/planet_group_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_sub_first_fragment"
+            android:icon="@drawable/ic_five"
+            android:title="Sub item 1" />
+        <item
+            android:id="@+id/nav_sub_second_fragment"
+            android:icon="@drawable/ic_six"
+            android:title="Sub item 2" />
+        <item
+            android:id="@+id/nav_sub_third_fragment"
+            android:icon="@drawable/ic_seven"
+            android:title="Sub item 3" />
+        <item
+            android:id="@+id/nav_sub_fourth_fragment"
+            android:icon="@drawable/ic_eight"
+            android:title="Sub item 4" />
     </group>
 </menu>
