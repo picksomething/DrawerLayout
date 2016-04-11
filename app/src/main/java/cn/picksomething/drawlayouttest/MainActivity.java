@@ -12,7 +12,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,8 +19,6 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private String[] mPlanetTitles;
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
@@ -39,12 +36,18 @@ public class MainActivity extends AppCompatActivity {
 
         // Tie DrawerLayout events to the ActionBarToggle
         mDrawerLayout.addDrawerListener(mToggle);
+        showDefaultFragment();
     }
 
     private void findViews() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+    }
+
+    private void setupToolbar() {
+        // Set a Toolbar to replace the ActionBar.
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -53,16 +56,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         selectDrawerItem(menuItem);
+                        menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         return true;
                     }
                 });
-    }
-
-    private void setupToolbar() {
-        // Set a Toolbar to replace the ActionBar.
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
@@ -75,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
 
-        Log.d("caobin", "menuItem.getItemId = " + menuItem.getItemId());
         switch (menuItem.getItemId()) {
             case R.id.nav_first_fragment:
                 args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 0);
@@ -89,16 +86,24 @@ public class MainActivity extends AppCompatActivity {
                 args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 2);
                 fragment.setArguments(args);
                 break;
-            case R.id.nav_sub_first_fragment:
+            case R.id.nav_fourth_fragment:
                 args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 3);
                 fragment.setArguments(args);
                 break;
-            case R.id.nav_sub_second_fragment:
+            case R.id.nav_sub_first_fragment:
                 args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 4);
                 fragment.setArguments(args);
                 break;
-            case R.id.nav_sub_third_fragment:
+            case R.id.nav_sub_second_fragment:
                 args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 5);
+                fragment.setArguments(args);
+                break;
+            case R.id.nav_sub_third_fragment:
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 6);
+                fragment.setArguments(args);
+                break;
+            case R.id.nav_sub_fourth_fragment:
+                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 7);
                 fragment.setArguments(args);
                 break;
             default:
@@ -116,6 +121,17 @@ public class MainActivity extends AppCompatActivity {
         setTitle(menuItem.getTitle());
         // Close the navigation drawer
         //mDrawerLayout.closeDrawers();
+    }
+
+    private void showDefaultFragment() {
+        Fragment fragment = new PlanetFragment();
+        Bundle args = new Bundle();
+        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, -1);
+        fragment.setArguments(args);
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
     }
 
     @Override

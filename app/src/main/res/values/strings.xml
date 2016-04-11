@@ -6,8 +6,17 @@
     <string name="action_settings">Settings</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="action_search">Web search</string>
+    <string name="action_search">Search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
-    <string name="header_hint_str">This is header</string>
+    <string name="header_hint_str">点击下方选项选择不同的星球</string>
+    <string name="earth_str">地球</string>
+    <string name="jupiter_str">木星</string>
+    <string name="mars_str">火星</string>
+    <string name="mercury">水星</string>
+    <string name="neptune_str">海王星</string>
+    <string name="saturn_str">土星</string>
+    <string name="uranus_str">天王星</string>
+    <string name="venus_str">金星</string>
+    <string name="default_hint_str">从左边边界右滑或者点击左上角导航图标打开抽屉布局</string>
 
 </resources>
