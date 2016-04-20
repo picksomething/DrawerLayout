@@ -75,40 +75,31 @@ public class MainActivity extends AppCompatActivity {
 
         switch (menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 0);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 0);
                 break;
             case R.id.nav_second_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 1);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 1);
                 break;
             case R.id.nav_third_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 2);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 2);
                 break;
             case R.id.nav_fourth_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 3);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 3);
                 break;
             case R.id.nav_sub_first_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 4);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 4);
                 break;
             case R.id.nav_sub_second_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 5);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 5);
                 break;
             case R.id.nav_sub_third_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 6);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 6);
                 break;
             case R.id.nav_sub_fourth_fragment:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 7);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, 7);
                 break;
             default:
-                args.putInt(PlanetFragment.ARG_PLANET_NUMBER, -1);
-                fragment.setArguments(args);
+                setFragmentArgs(fragment, args, -1);
         }
 
         // Insert the fragment by replacing any existing fragment
@@ -123,11 +114,15 @@ public class MainActivity extends AppCompatActivity {
         //mDrawerLayout.closeDrawers();
     }
 
+    private void setFragmentArgs(Fragment fragment, Bundle args, int value) {
+        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, value);
+        fragment.setArguments(args);
+    }
+
     private void showDefaultFragment() {
         Fragment fragment = new PlanetFragment();
         Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, -1);
-        fragment.setArguments(args);
+        setFragmentArgs(fragment, args, -1);
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
