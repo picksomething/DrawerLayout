@@ -17,6 +17,6 @@
     <string name="saturn_str">土星</string>
     <string name="uranus_str">天王星</string>
     <string name="venus_str">金星</string>
-    <string name="default_hint_str">从左边边界右滑或者点击左上角导航图标打开抽屉布局\n测试一下</string>
+    <string name="default_hint_str">从左边边界右滑或者点击左上角导航图标打开抽屉布局\n测试测试</string>
 
 </resources>
